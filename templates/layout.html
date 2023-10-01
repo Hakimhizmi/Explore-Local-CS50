@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Explore Local</title>
+    <link href="/static/styles.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gray-100 w-full h-screen">
+
+    <header
+        class="relative bg-white w-full flex flex-col overflow-hidden px-4 md:px-44  py-4 text-blue-900 md:mx-auto md:flex-row md:items-center shadow-sm">
+        <a href="/" class="flex cursor-pointer items-center whitespace-nowrap text-2xl font-cyan-500">
+            <span class="mr-2 text-4xl text-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em"
+                    preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M6.925 16.875Q5.2 16.225 4.1 14.713Q3 13.2 3 11.25q0-1.975.938-3.513Q4.875 6.2 6 5.15q1.125-1.05 2.062-1.6L9 3v2.475q0 .625.45 1.062q.45.438 1.075.438q.35 0 .65-.15q.3-.15.5-.425L12 6q.95.55 1.625 1.35t1.025 1.8l-1.675 1.675q-.05-.6-.287-1.175q-.238-.575-.638-1.05q-.35.2-.738.287q-.387.088-.787.088q-1.1 0-1.987-.612Q7.65 7.75 7.25 6.725q-.95.925-1.6 2.062Q5 9.925 5 11.25q0 .775.275 1.462q.275.688.75 1.213q.05-.5.287-.938q.238-.437.588-.787L9 10.1l2.15 2.1q.05.05.1.125t.1.125l-1.425 1.425q-.05-.075-.087-.125q-.038-.05-.088-.1L9 12.925l-.7.7q-.125.125-.212.287q-.088.163-.088.363q0 .3.175.537q.175.238.45.363ZM9 10.1Zm0 0ZM7.4 22L6 20.6L19.6 7L21 8.4L17.4 12H21v2h-5.6l-.5.5l1.5 1.5H21v2h-2.6l2.1 2.1l-1.4 1.4l-2.1-2.1V22h-2v-4.6l-1.5-1.5l-.5.5V22h-2v-3.6Z" />
+                </svg>
+            </span>
+            Explore Local
+        </a>
+        <input type="checkbox" class="peer hidden" id="navbar-open" />
+        <label class="absolute top-5 right-7 cursor-pointer md:hidden" for="navbar-open">
+            <span class="sr-only">Toggle Navigation</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </label>
+        <nav aria-label="Header Navigation"
+            class="peer-checked:mt-8 peer-checked:max-h-56 flex max-h-0 w-full flex-col items-center justify-between overflow-hidden transition-all md:ml-24 md:max-h-full md:flex-row md:items-start">
+            <ul class="flex flex-col items-center space-y-2 md:ml-auto md:flex-row md:space-y-0">
+                <li class="font-bold md:mr-12"><a href="/">Home</a></li>
+                <li class="md:mr-12"><a href="#">About Service</a></li>
+                <li class="md:mr-12"><a href="#">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    {% block main %}{% endblock %}
+
+
+    <svg class="-z-10 absolute -top-10 opacity-10" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <pattern id="a" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="scale(2) rotate(0)">
+                <rect x="0" y="0" width="100%" height="100%" fill="hsla(0,0%,100%,1)" />
+                <path d="M3.25 10h13.5M10 3.25v13.5" stroke-linecap="square" stroke-width="0.5"
+                    stroke="hsla(258.5,59.4%,59.4%,1)" fill="none" />
+            </pattern>
+        </defs>
+        <rect width="800%" height="800%" transform="translate(0,0)" fill="url(#a)" />
+    </svg>
+
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+
+<div class="mx-auto h-full py-10 sm:max-w-xl md:max-w-full lg:max-w-screen-2xl">
+    <div class="flex flex-col items-center justify-between lg:flex-row">
+        <div class="py-10 px-4 md:px-0">
+            <div class="w-full md:w-[760px] ">
+                <h1 class="max-w-full text-2xl font-bold leading-snug sm:text-5xl sm:leading-snug text-slate-900">
+                    Find the best places near you <br />
+                    <span class="ml-32 md:ml-72">With <span class="rounded-xl bg-cyan-500 px-2 pb-2 text-white">Explore
+                            Local</span></span>
+                </h1>
+                <div class="border-8 border-white shadow-lg mt-5">
+
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d53794797.584501214!2d7.994744183386348!3d34.61999105119436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sma!4v1696169056163!5m2!1sen!2sma"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="mt-10">
+                <div
+                    class="group relative border border-gray-900 p-1 focus-within:ring-1 focus-within:ring-gray-900 sm:flex-row">
+                    <input type="name" name="city" id="cityInput" placeholder="Enter name of City "
+                        class="block w-full bg-transparent px-4 py-4 placeholder-gray-900 outline-none" required
+                        autofocus />
+                    <div class="flex border-gray-900 sm:absolute sm:inset-y-0 sm:right-0 sm:h-full sm:border-l">
+                        <button type="submit"  onclick="Send_request()"
+                            class="inline-flex w-full items-center justify-center bg-slate-900 px-6 py-3 text-lg font-bold text-white outline-none transition-all hover:bg-gray-600 focus:bg-gray-600 sm:hover:translate-x-2 sm:hover:-translate-y-2">Let's
+                            explore the places</button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="flex flex-col space-y-3 divide-gray-300 text-sm text-gray-700 sm:flex-row sm:space-y-0 sm:divide-x">
+                <div class="mt-4 flex flex-wrap">
+                    <p class="m-1 rounded-md text-gray-600 bg-cyan-400 px-2 py-1 text-sm cursor-pointer place">restaurant</p>
+                    <p class="m-1 rounded-md text-gray-600 bg-gray-300 px-2 py-1 text-sm cursor-pointer place">shopping mall</p>
+                    <p class="m-1 rounded-md text-gray-600 bg-gray-300 px-2 py-1 text-sm cursor-pointer place">gym</p>
+                    <p class="m-1 rounded-md text-gray-600 bg-gray-300 px-2 py-1 text-sm cursor-pointer place">park</p>
+                    <p class="m-1 rounded-md text-gray-600 bg-gray-300 px-2 py-1 text-sm cursor-pointer place">hospital</p>
+                    <p class="m-1 rounded-md text-gray-600 bg-gray-300 px-2 py-1 text-sm cursor-pointer place">bank</p>
+                    <p class="m-1 rounded-md text-gray-600 bg-gray-300 px-2 py-1 text-sm cursor-pointer place">mosque</p>
+                    <p class="m-1 rounded-md text-gray-600 bg-gray-300 px-2 py-1 text-sm cursor-pointer place">hotel</p>
+                    <p class="m-1 rounded-md text-gray-600 bg-gray-300 px-2 py-1 text-sm cursor-pointer place">hostel</p>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="relative hidden  lg:block  mb-10 lg:w-2/6">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                class="mx-auto my-6 h-10 w-10 animate-bounce rounded-full bg-blue-50  p-2 lg:hidden" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 17l-4 4m0 0l-4-4m4 4V3" />
+            </svg>
+            <div class="w-fit rounded-[6rem] mx-auto overflow-hidden rounded-tl-none rounded-br-none bg-orange-400 ">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="absolute -left-10 -top-20 h-28 w-28 rounded-xl bg-transparent text-yellow-400"
+                    viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="absolute right-0 -bottom-20 h-28 w-28 rounded-xl bg-transparent text-yellow-400"
+                    viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z"
+                        clip-rule="evenodd" />
+                </svg>
+                <img class="-mb-20"
+                    src="https://i0.wp.com/handluggageonly.co.uk/wp-content/uploads/2017/06/HandLuggageOnly-8-4.jpg?resize=1000%2C1500&ssl=1"
+                    alt="" h />
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/script.js"></script>
+
+
+
+
+{% endblock %}
