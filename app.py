@@ -35,6 +35,7 @@ def index():
     if request.method == "GET":
         return render_template("index.html")
 
+
 @app.route("/explore" , methods=["GET", "POST"])
 def explore():
     if request.method == "GET":
@@ -61,9 +62,9 @@ def explore():
                 if businesses:
                     return render_template("explore.html" , data=businesses , location = location , search_type = search_type)
                 else:
-                    return render_template("explore.html" , data=[] , location = location , search_type = search_type)
+                    return render_template("explore.html" , location = location , search_type = search_type)
             else:
-                return render_template("explore.html" , data=[] , location = location , search_type = search_type)
+                return render_template("explore.html" , location = location , search_type = search_type)
         except Exception as e:
             return apology(str(e), 403)
     else :
@@ -71,7 +72,7 @@ def explore():
         image_url = request.form.get("image_url")
         rating = request.form.get("rating")
         name = request.form.get("name")
-        display_address = request.form.get("display_address[]")
+        display_address = request.form.getlist("display_address[]")
         display_address = " ".join(display_address)
         categorie = request.form.get("categories")
         try :
@@ -83,24 +84,38 @@ def explore():
 
 @app.route("/saved", methods=["GET", "POST"])
 def Saved():
+    if session.get("user_id") is None:
+        return redirect("/login")
     if request.method == "GET":
-        data = db.execute("SELECT * FROM saved where user_id = (?)",session["user_id"])
-        return render_template("saved.html" , data=data )
+        try :
+            data = db.execute("SELECT * FROM saved where user_id = (?)",session["user_id"])
+            return render_template("saved.html" , data=data )
+        except Exception as e:
+            return apology(str(e), 403)    
+    else :
+        try :
+            _id = request.form.get("id")
+            db.execute("DELETE FROM saved where id = (?)",_id)
+            return redirect("/saved")
+        except Exception as e:
+            return apology(str(e), 403)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     session.clear()
 
     if request.method == "POST":
-        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        try :
+            rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
-        if len(rows) != 1 or not check_password_hash(rows[0]["password_hashed"], request.form.get("password")):
-            return apology("invalid username and/or password", 403)
+            if len(rows) != 1 or not check_password_hash(rows[0]["password_hashed"], request.form.get("password")):
+                return apology("invalid username and/or password", 403)
 
-        session["user_id"] = rows[0]["id"]
+            session["user_id"] = rows[0]["id"]
 
-        return redirect("/")
-
+            return redirect("/")
+        except Exception as e:
+            return apology(str(e), 403)    
     else:
         return render_template("login.html")
 
@@ -112,13 +127,15 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
         password_confirme = request.form.get("confirmation")
-        checkuser = db.execute("select username from users where username = ?",username)
-
-        if checkuser or password != password_confirme :
-            return apology("username Already Taken and/or password dont match!", 400)
-        else :
-            db.execute("insert into users (username,password_hashed) values (?,?)", username , generate_password_hash(password,method='pbkdf2', salt_length=16))
-            return redirect("/login")    
+        try :
+            checkuser = db.execute("select username from users where username = ?",username)
+            if checkuser or password != password_confirme :
+                return apology("username Already Taken and/or password dont match!", 400)
+            else :
+                db.execute("insert into users (username,password_hashed) values (?,?)", username , generate_password_hash(password,method='pbkdf2', salt_length=16))
+                return redirect("/login")  
+        except Exception as e:
+            return apology(str(e), 403)          
 
 @app.route("/logout")
 def logout():
