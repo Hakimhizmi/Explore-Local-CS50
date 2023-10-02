@@ -137,6 +137,14 @@ def register():
         except Exception as e:
             return apology(str(e), 403)          
 
+@app.route("/aboutUs")
+def AboutUs():
+    return render_template("aboutUs.html")
+@app.route("/aboutMe")
+def AboutMe():
+    return render_template("aboutMe.html")
+
+
 @app.route("/logout")
 def logout():
     session.clear()

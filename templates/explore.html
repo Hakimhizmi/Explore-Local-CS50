@@ -2,6 +2,16 @@
 
 
 {% block main %}
+{% if not session["user_id"] %}
+<script>
+  $.toast({
+    heading: 'Information',
+    text: 'Log in so you can save places to your account <a href="/login">click here</a> !',
+    showHideTransition: 'slide',
+    icon: 'info'
+})
+</script>
+{% endif %}
 
 <section class="py-10 max-h-full overflow-y-auto mb-10">
   <h1 class="mb-1 text-center font-sans text-5xl font-bold text-gray-700">Top 10 Best {{search_type}} Near

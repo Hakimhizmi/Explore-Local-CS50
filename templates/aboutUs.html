@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+<body>
+    <div class=" min-h-screen w-screen py-12 md:mt-20">
+        <div class="relative my-auto mx-auto flex flex-col md:space-x-12  sm:max-w-xl md:max-w-screen-xl md:flex-row">
+          <div class="mx-auto flex px-4 w-full max-w-xl lg:max-w-screen-xl">
+            <div class="mb-16 lg:my-auto lg:max-w-lg">
+              <div class="md:mb-6 max-w-xl">
+                <div>
+                  <p class="bg-teal-accent-400 mb-2 inline-block rounded-full bg-lime-300 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-900">Best for you</p>
+                </div>
+                <h2 class="mb-6 max-w-lg text-3xl font-extrabold text-slate-700 sm:text-5xl sm:leading-snug">
+                    About Us 
+                  <span class="rounded- abg-gradient-to-r inline-block bg-sky-400 from-lime-400 to-sky-400 px-2 font-bold text-white">ExploreLocal</span>
+                </h2>
+                <p class="text-base text-gray-700 md:text-lg">
+                    Welcome to ExploreLocal, your ultimate guide to uncovering the hidden gems in your city and beyond. We're passionate about helping you explore the richness of your local community, from the best restaurants and cafes to top-notch gyms, hotels, and much more.
+                    <br/><br/>
+                    At ExploreLocal, our mission is simple: to connect you with the finest establishments and experiences in your area. We believe that the heart of any community lies in its local businesses, and we're here to help you discover them. Whether you're a resident looking for your new favorite hangout or a traveler seeking authentic experiences, we've got you covered.
+
+                </p>
+              </div>
+           
+            </div>
+          </div>
+      
+          <div class="flex h-full w-full space-x-3 overflow-hidden md:justify-end">
+            <div class="hidden w-56 items-center space-y-3 lg:flex">
+              <div class="overflow-hidden rounded-xl bg-yellow-400">
+                <img class="h-full w-full object-cover" src="https://globalcastaway.com/wp-content/uploads/2018/12/chefchaouen-photo-guide-phone-girl-800x1200.jpg" alt="" />
+              </div>
+            </div>
+            <div class="w-full flex-col space-y-3 rounded-xl py-4 lg:flex lg:w-80">
+              <div class="h-40 overflow-hidden rounded-xl bg-green-600/60">
+                <img class="mx-auto h-full w-full object-cover" src="https://www.planetware.com/wpimages/2020/02/morocco-in-pictures-beautiful-places-to-photograph-dades-valley.jpg" alt="" />
+              </div>
+              <div class="h-40 overflow-hidden rounded-xl bg-pink-600/60">
+                <img class="mx-auto h-full w-full object-cover" src="https://www.planetware.com/photos-tiles/morocco-best-beach-resorts-banyan-tree-tamouda-bay-thumb.jpg" alt="" />
+              </div>
+              <div class="h-40 overflow-hidden rounded-xl bg-blue-600/60">
+                <img class="mx-auto h-full w-full object-cover" src="https://www.planetware.com/wpimages/2020/02/morocco-in-pictures-beautiful-places-to-photograph-chefhcaouen-blue-village.jpg" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {% endblock %}
