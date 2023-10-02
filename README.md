@@ -1,8 +1,6 @@
 # Explore Local  
 
 
-Video Demo :
-
 
 ----> Description: 
 
