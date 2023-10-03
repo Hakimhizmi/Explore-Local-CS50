@@ -42,7 +42,7 @@ def explore():
         location = request.args.get('city')
         search_type = request.args.get('search_type')
 
-        yelp_api_key = "9oEzAgNdDzgATHf95S5AuP8LgptVmuCMgHVFapmeKGCasp_8oae4WsqbU4ZhySS__TTiH-kvp1E_DhJvxMfVhH6YvKy5bxcvnHWAXcxrT4gzyEpYpBXJqUhqOFsZZXYx"
+        yelp_api_key = "" # yelp api for use this app
 
         endpoint = "https://api.yelp.com/v3/businesses/search"
         headers = {"Authorization": f"Bearer {yelp_api_key}"}
